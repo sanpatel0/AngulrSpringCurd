@@ -26,9 +26,7 @@ public class CurdBackEndApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		 userRepository.save(new User("one","one"));
-		 userRepository.save(new User("two","two"));
-		 userRepository.save(new User("three","three"));
+		 
 		
 	}
 }
