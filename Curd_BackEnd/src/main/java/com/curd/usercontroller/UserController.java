@@ -18,34 +18,34 @@ import com.curd.model.User;
 import com.curd.repository.UserRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users/")
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping("/users")
+	@GetMapping
 	public List<User> getUser(){
 		return userRepository.findAll();
 		}
-	@GetMapping("/user/{id}")
+	@GetMapping("{id}")
 	public Optional<User> getUser(@PathVariable Long id) {
 		return userRepository.findById(id);
 		}
-	@DeleteMapping("/user/{id}")
+	@DeleteMapping("/{id}")
 	public boolean deleteUser(@PathVariable Long id) {
 		userRepository.deleteById(id);
 		return true;
 		
 	}
-	@PostMapping("/user")
+	@PostMapping
 	public User createUser(@RequestBody User user) {
 		return userRepository.save(user);
 		
 	}
 	
-	@PutMapping("/user")
+	@PutMapping
 	public User updateUser(@RequestBody User user) {
 		return userRepository.save(user);
 		
